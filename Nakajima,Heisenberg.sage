@@ -455,22 +455,3 @@ class FockElement(InfinitePolynomial_dense):
         return out
 
 
-# %%
-M = matrix([[0,-1],[-1,2]])
-v = VectorSpace(QQ,2,inner_product_matrix=M)
-F = FockModule(QQ, v, labels=('f','s'))
-F.inject_variables()
-
-a = FockElement(F, (8*f[6]^5))
-a.dict()
-L = HeisenbergAlgebraVSpace(QQ, v,labels = ('f','s'))
-x = L.q(2,1)
-y = L.p(7,1)
-z = L.p(6,1)
-c = L.c()
-a.act(x)
-a.act(x)
-a.act(y)
-a.act(z)
-a.act(c)
-a.act(z)
