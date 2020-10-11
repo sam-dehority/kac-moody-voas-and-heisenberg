@@ -1,5 +1,5 @@
 load ('Nakajima,Heisenberg.sage')
-load ("PetersonMultilicity.sage")
+load ("KacMoodyMethods.sage")
 # %% In[]
 class LatticeVOA(SageObject):
     """Given an even lattice, methods for the Frenekl-Kac construction giving a representation of a BKM algebra on the fock space"""
@@ -622,34 +622,3 @@ class LatticeVOA(SageObject):
                         else:
                             out[rmon+lmon] = -lc*rc
             return out
-
-
-# %% In[test sl3]
-
-# %% In[]
-## %% In[Test BKM]
-#M = matrix([[0,-1],[-1,2]])
-#v = VectorSpace(QQ,2,inner_product_matrix=M)
-#H = HeisenbergAlgebraVSpace(QQ, v, labels = ('c', 'd'))
-#F = FockModule(QQ, v, labels=('c','d'))
-#V = LatticeVOA(QQ, v, labels = ('c', 'd'))
-#
-#base_wt = (vector((0,1)), -3)
-#wts = [(vector((i,j)), -l) for i in range(2) for j in range(2) for k in range(2) for l in range(4) ]
-#x = V.root_system.root_space_prebasis((1,1))[0].list()[0][0];x
-#y = V.root_system.root_space_prebasis((1,0))[0].list()[0][0];y
-#V._test_commutator_at_wts_if_bdd(x, 1, y, 2, wts, highest = 5)
-#V._test_commutator_at_wts_if_bdd(x, 2, y, 1, wts, highest = 5)
-#
-## %% In[test on Lorenzian KM]
-#M = matrix([[2, -2,0],[-2,2,-1], [0,-1,2]])
-#v = VectorSpace(QQ,3,inner_product_matrix=M)
-#H = HeisenbergAlgebraVSpace(QQ, v, labels = ('a', 'b', 'c'))
-#F = FockModule(QQ, v, labels=('a','b', 'c'))
-#V = LatticeVOA(QQ, v, labels = ('a', 'b', 'c'))
-#wt = (vector((0,1,0)), -2)
-#
-#ms = V._root_space_casimir_summands_at_wt(vector((2,2,1)), 2, wt); ms
-list(2*i for i in range(5))
-M = Matrix([[2,-2,0],[-2,2,-1],[0,-1,2]])
-M.det()
